@@ -1,0 +1,19 @@
+
+#import module
+import tkinter
+#make te window
+main = tkinter.Tk()
+#change title, size, icon
+main.title("Tic Tac Toe")
+
+main.wm_iconbitmap('x.ico')
+
+main.geometry("400x400")
+photo = tkinter.PhotoImage(file="grid.gif")
+label = tkinter.Label(image = photo)
+
+label.pack()
+'''turn = tkinter.Label(main, text=" X goes first")
+
+turn.pack()'''
+main.mainloop()
