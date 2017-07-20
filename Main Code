@@ -1,6 +1,8 @@
 
 #import module
 import tkinter
+
+from PIL import Image, ImageTk
 #make te window
 main = tkinter.Tk()
 #change title, size, icon
@@ -9,10 +11,21 @@ main.title("Tic Tac Toe")
 main.wm_iconbitmap('x.ico')
 
 main.geometry("400x400")
-photo = tkinter.PhotoImage(file="grid.gif")
-label = tkinter.Label(image = photo)
 
-label.pack()
+x=Image.open('x.png')
+g=Image.open('cross.png')
+
+x_image=ImageTk.PhotoImage(x) 
+g_image=ImageTk.PhotoImage(g)
+
+grid = tkinter.Label(main, image=g_image)
+grid.place(x=0,y=10,width=400,height=400)
+
+x_place = tkinter.Label(main, image=x_image)
+x_place.place(x=150,y=30,width=100,height=100)
+
+
+
 '''turn = tkinter.Label(main, text=" X goes first")
 
 turn.pack()'''
