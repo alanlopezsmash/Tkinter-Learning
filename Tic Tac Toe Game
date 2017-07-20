@@ -1,0 +1,130 @@
+import random
+
+#importing tkinter gui tool for separate window as well as random, used to decide whether Player 1(X) or Player 2(O) goes first
+
+
+def organize_grid(a,b,c,d,e,f,g,h):
+    for i in range(len(a)):
+        b+=a[i]+ " "
+    for i in range(len(c)):
+        d+=c[i]+ " "
+    for i in range(len(e)):
+        f+=e[i]+ " "
+    for i in range(len(g)):
+        h+=g[i]+ " "
+    
+    print (h+"\n"+b+"\n"+d+"\n"+f)
+#defining function table
+def tictactoe():
+    rindex=[" ","1","2","3"]
+    r1=["1","_","_","_"]
+    r2=["2","_","_","_"]
+    r3=["3","_","_","_"]
+    rsi=""
+    rs1=""
+    rs2=""
+    rs3=""
+    organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+#we are aware we have to create the app on gui but we are starting with a normal python to test 
+
+    move_first = random.randint(1,2)
+    countX = 1 
+    countY = 1 
+    
+    if move_first == 1:
+        
+        print("X makes the first move!")
+        count =0
+        while count < 9:
+            move = input()
+            if move == 'topright':
+                countX = countX + 1
+                r1.pop(3) 
+                r1.insert(3, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move == 'midright':
+                countX = countX + 1
+                r2.pop(3) 
+                r2.insert(3, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move == 'botright':
+                countX = countX + 1
+                r3.pop(3) 
+                r3.insert(3, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move == 'topleft':
+                countX = countX + 1
+                r1.pop(1) 
+                r1.insert(1, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move == 'midleft':
+                countX = countX + 1
+                r2.pop(1) 
+                r2.insert(1, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move == 'botleft':
+                countX = countX + 1
+                r3.pop(1) 
+                r3.insert(1, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move == 'topmid':
+                countX = countX + 1
+                r1.pop(2) 
+                r1.insert(2, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move == 'midmid':
+                countX = countX + 1
+                r2.pop(2) 
+                r2.insert(2, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move == 'botmid':
+                countX = countX + 1
+                r3.pop(2) 
+                r3.insert(2, "X")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            move2 = input()
+            if move2 == 'topright':
+                countY = countY + 1
+                r1.pop(3) 
+                r1.insert(3, "O")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move2 == 'midright':
+                countY = countY + 1
+                r2.pop(3) 
+                r2.insert(3, "O")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move2 == 'botright':
+                countY = countY + 1
+                r3.pop(3) 
+                r3.insert(3, "O")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move2 == 'topleft':
+                countY = countY + 1
+                r1.pop(1) 
+                r1.insert(1, "O")
+            elif move2 == 'midleft':
+                countY = countY + 1
+                r2.pop(1) 
+                r2.insert(1, "O")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move2 == 'botleft':
+                countY = countY + 1
+                r3.pop(1) 
+                r3.insert(1, "O")
+            elif move2 == 'topmid':
+                countY = countY + 1
+                r1.pop(2) 
+                r1.insert(2, "O")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move2 == 'midmid':
+                countY = countY + 1
+                r2.pop(2) 
+                r2.insert(2, "O")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            elif move2 == 'botmid':
+                countY = countY + 1
+                r3.pop(2) 
+                r3.insert(2, "O")
+                organize_grid(r1,rs1,r2,rs2,r3,rs3,rindex,rsi)
+            count+=1
+                
