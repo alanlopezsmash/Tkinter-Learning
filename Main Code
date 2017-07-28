@@ -1,32 +1,123 @@
-
-#import module
-import tkinter
-
+import tkinter as tk
 from PIL import Image, ImageTk
-#make te window
-main = tkinter.Tk()
-#change title, size, icon
-main.title("Tic Tac Toe")
 
-main.wm_iconbitmap('x.ico')
+#create window
+root = tk.Tk()
 
-main.geometry("400x400")
+root.title("Tic Tac Toe")
 
-x=Image.open('x.png')
+root.wm_iconbitmap('x.ico')
+#Create canvas. Images and "sprites will go on here
+canvas = tk.Canvas(root, width=400, height=400)
+
+#create the grid for the game
 g=Image.open('cross.png')
+grid = ImageTk.PhotoImage(g)
+canvas.create_image(200,200,image=grid)
 
-x_image=ImageTk.PhotoImage(x) 
-g_image=ImageTk.PhotoImage(g)
+x_i=Image.open('x.png')
+x_photo=ImageTk.PhotoImage(x_i)
 
-grid = tkinter.Label(main, image=g_image)
-grid.place(x=0,y=10,width=400,height=400)
+o_i=Image.open('o.png')
+o_photo=ImageTk.PhotoImage(o_i)
 
-x_place = tkinter.Label(main, image=x_image)
-x_place.place(x=150,y=30,width=100,height=100)
+symbol=True
+def place_i(x,y,z):
+    global symbol
+    if symbol==True:    
+        canvas.create_image(x,y,image=x_photo)
+        z.place_forget()
+        symbol=False
+        
+    else:
+        canvas.create_image(x,y,image=o_photo)
+        z.place_forget()
+        symbol=True
 
 
+class button:
+    txt=""
+    button_x=0
+    button_y=0
+    image_x=0
+    image_y=0
+    button_1 = False
+    def b_place(self):
+        but= tk.Button(root,text=self.txt, command= lambda: place_i(self.image_x,self.image_y,but))
+        but.place(relx=self.button_x,rely=self.button_y,anchor="c")
+        
+button_1=button()
+button_1.button_x=.20
+button_1.button_y=.20
+button_1.txt="Place here?"
+button_1.image_x=80
+button_1.image_y=80
+button_1.b_place()
 
-'''turn = tkinter.Label(main, text=" X goes first")
+ 
+button_2=button()
+button_2.button_x=.50
+button_2.button_y=.20
+button_2.txt="Place here?"
+button_2.image_x=200
+button_2.image_y=80
+button_2.b_place()
 
-turn.pack()'''
-main.mainloop()
+button_3=button()
+button_3.button_x=.80
+button_3.button_y=.20
+button_3.txt="Place here?"
+button_3.image_x=320
+button_3.image_y=80
+button_3.b_place()
+
+button_4=button()
+button_4.button_x=.20
+button_4.button_y=.50
+button_4.txt="Place here?"
+button_4.image_x=80
+button_4.image_y=200
+button_4.b_place()
+    
+button_5=button()
+button_5.button_x=.50
+button_5.button_y=.50
+button_5.txt="Place here?"
+button_5.image_x=200
+button_5.image_y=200
+button_5.b_place()
+
+button_6=button()
+button_6.button_x=.80
+button_6.button_y=.50
+button_6.txt="Place here?"
+button_6.image_x=320
+button_6.image_y=200
+button_6.b_place()
+    
+button_7=button()
+button_7.button_x=.20
+button_7.button_y=.80
+button_7.txt="Place here?"
+button_7.image_x=80
+button_7.image_y=320
+button_7.b_place()
+    
+button_8=button()
+button_8.button_x=.50
+button_8.button_y=.80
+button_8.txt="Place here?"
+button_8.image_x=200
+button_8.image_y=320
+button_8.b_place()
+    
+button_9=button()
+button_9.button_x=.80
+button_9.button_y=.80
+button_9.txt="Place here?"
+button_9.image_x=320
+button_9.image_y=320
+button_9.b_place()
+canvas.pack()
+
+root.mainloop()
